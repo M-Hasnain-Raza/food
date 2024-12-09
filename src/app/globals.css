@@ -9,7 +9,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    /* --background: #0a0a0a; */
     --foreground: #ededed;
   }
 }
@@ -18,4 +18,22 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.heroSectionBg {
+  background-image: url(./assets/heroBg.png);
+}
+
+/* .foodCategoryBg {
+  background-image: url(./assets/foodCategoryBg.png);
+  background-repeat: no-repeat;
+} */
+
+.clients {
+  background-image: url(./assets/clientBg.png);
+
+}
+
+.choosePickBg {
+  background-image: url(./assets/choosePickImg1.png);
 }
