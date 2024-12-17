@@ -5,10 +5,13 @@ import Clients from "./components/clients";
 import ChoosePickMenu from "./components/choosePickMenu";
 import OurChefs from "./components/ourChefs";
 import Testimonals from "./components/testimonals";
+import RestaurantProcess from "./components/restaurantProcess";
+import BlogPost from "./components/blogPost";
+import Footer from "./components/footer";
 
 export default function Home() {
   return (
-    <div>
+    <div className=" max-w-[1920px] mx-auto px-[1px] ">
       <HeroSection></HeroSection>
       <AboutUs></AboutUs>
       <FoodCategory></FoodCategory>
@@ -16,6 +19,9 @@ export default function Home() {
       <ChoosePickMenu></ChoosePickMenu>
       <OurChefs></OurChefs>
       <Testimonals></Testimonals>
+      <RestaurantProcess></RestaurantProcess>
+      <BlogPost></BlogPost>
+      <Footer></Footer>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image";
-import choosePickImg1 from "../assets/choosePickImg1.png";
+
 import choosePickImg2 from "../assets/choosePickImg2.png";
 import choosePickImg3 from "../assets/choosePickImg3.png";
 import choosePickImg4 from "../assets/choosePickImg4.png";

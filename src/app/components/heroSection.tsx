@@ -13,13 +13,13 @@ import heroImage from "../assets/heroImage.png";
 import Image from "next/image";
 
 const navigation = [
-  { name: "Home", href: "#" },
-  { name: "Menu", href: "#" },
+  { name: "Home", href: "/" },
+  { name: "Menu", href: "/menu" },
   { name: "Blog", href: "#" },
   { name: "Pages", href: "#" },
-  { name: `About `, href: "#" },
-  { name: "Shop", href: "#" },
-  { name: "Contact", href: "#" },
+  { name: "About", href: "#" },
+  { name: "Shop List", href: "/shoplist" },
+  { name: "Shop Details", href: "/shopdetails" },
 ];
 
 export default function HeroSection() {

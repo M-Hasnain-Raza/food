@@ -23,7 +23,7 @@ export default function Testimonals() {
             <span className=" text-[#ff9f0d] ">Wh</span>at our client are saying
           </h2>
         </div>
-        <div className=" bg-white w-[868px] h-[451px] mx-auto relative my-28">
+        <div className=" bg-white w-[868px] h-[451px] mx-auto relative mt-28">
           <Image
             src={testimonalDp}
             alt=""
@@ -44,7 +44,7 @@ export default function Testimonals() {
           <Image src={testimonalBg} alt="" className=" absolute -right-48 top-[0px] "></Image>
         </div>
 
-        <Image src={testimonalDot} alt="" className=" mx-auto"></Image>
+        <Image src={testimonalDot} alt="" className=" mx-auto py-10"></Image>
       </div>
     </div>
   );
