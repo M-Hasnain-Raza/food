@@ -148,7 +148,7 @@ export default function ShopDetails() {
           </p>
           <div className="text-[#0D0D0D] ">
             <p className=" p-sm ">Key Benefits</p>
-            <ol>
+            <ol className="  ">
               <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               </li>
               <li>Maecenas ullamcorper est et massa mattis condimentum.

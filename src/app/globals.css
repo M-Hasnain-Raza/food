@@ -14,6 +14,31 @@
   }
 }
 
+
+@font-face {
+
+  font-family: 'GreatVibes';
+
+  src: url('./fonts/Great_Vibes/GreatVibes-Regular.ttf'); /* Path to your font file relative to "public" directory */
+
+  font-weight: normal;
+
+  font-style: normal;
+
+}
+@font-face {
+
+  font-family: 'Inter';
+
+  src: url('./fonts/Inter/static/Inter_18pt-Bold.ttf'); /* Path to your font file relative to "public" directory */
+
+  font-weight: normal;
+
+  font-style: normal;
+
+}
+
+
 body {
   color: var(--foreground);
   background: var(--background);
@@ -21,11 +46,13 @@ body {
 }
 
 .h1 {
+  font-family: Inter;
   font-size: 60px;
   line-height: 68px;
 }
 
 .h2 {
+  font-family: Inter;
   font-size: 48px;
   line-height: 56px;
 }
@@ -36,6 +63,12 @@ body {
 }
 
 .h4 {
+  font-size: 32px;
+  line-height: 40px;
+}
+
+.h4Title {
+  font-family: GreatVibes;
   font-size: 32px;
   line-height: 40px;
 }
@@ -63,6 +96,8 @@ body {
 
 .heroSectionBg {
   background-image: url(./assets/heroBg.png);
+  /* background-size: 680px; 
+  background-repeat: no-repeat; */
 }
 
 /* .foodCategoryBg {

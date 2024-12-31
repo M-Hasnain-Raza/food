@@ -8,16 +8,16 @@ import { FaCheck } from "react-icons/fa6";
 
 export default function AboutUs() {
   return (
-    <div className=" aboutUsTextAndaboutUsImages bg-[#0D0D0D]  max-w-[1920px] mx-auto h-[800px]  ">
-      <div className="max-w-[1320px] max-h-[562px] mx-auto flex justify-between py-32 ">
+    <div className=" aboutUsTextAndaboutUsImages bg-[#0D0D0D]  max-w-[1440px] mx-auto h-[800px]  ">
+      <div className="max-w-[1280px] max-h-[562px] mx-auto flex justify-between py-32 ">
         <div className=" aboutUsText ">
-          <h1 className=" text-[32px] leading-[40px] text-[#ff9f0d] ">
+          <h4 className=" h4 text-[#ff9f0d] ">
             About us
-          </h1>
-          <h1 className=" text-[48px] leading-[56px] pt-5 ">
+          </h4>
+          <h2 className=" h2 pt-5 ">
             <span className=" text-[#ff9f0d] ">We </span>Create the best
             <br /> foody product
-          </h1>
+          </h2>
           <p className=" text-[16px] leading-[24px] py-6 ">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
             diam <br /> pellentesque bibendum non dui volutpat fringilla
