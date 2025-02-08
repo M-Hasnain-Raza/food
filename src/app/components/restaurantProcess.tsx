@@ -28,7 +28,7 @@ export default function RestaurantProcess() {
               See More
             </button>
             <div className=" flex justify-between w-[190px] items-center ">
-            <div className=" w-[60px] h-[60px] bg-[#ff9f0d] rounded-full text-[40px] flex justify-center items-center "><IoPlayOutline ></IoPlayOutline></div>
+            <div className=" w-[60px] h-[60px] bg-[#ff9f0d] rounded-full text-[40px] flex justify-center items-center "><IoPlayOutline /></div>
             <h5 className=" text-[24px] leading-[32px] font-bold  ">Play Video</h5>
             </div>
           </div>

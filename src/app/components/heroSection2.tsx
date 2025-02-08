@@ -11,7 +11,7 @@ import { MdKeyboardArrowRight } from "react-icons/md";
 
 export default function HeroSection2() {
   return (
-    <div className=" xl:w-[1920px]  px-[0.5px] mx-auto ">
+    <div className=" max-w-[1920px] w-full  px-[0.5px] mx-auto ">
       <div className=" bg-[#0D0D0D] ">
         <div className=" w-[1320px] h-[100px] flex justify-between mx-auto items-center  ">
           <h5 className=" text-[24px] leading-[32px]  ">
@@ -25,12 +25,12 @@ export default function HeroSection2() {
               <Link href="/menu">Menu</Link>
             </p>
             <p className=" text-[16px] leading-[24px] "><Link href={"/blog"}>Blog</Link> </p>
-            <p className=" text-[16px] leading-[24px] ">Pages </p>
-            <p className=" text-[16px] leading-[24px] ">About </p>
+            <p className=" text-[16px] leading-[24px] "><Link href={"/blogDetails"}>BlogDetails</Link>  </p>
+            <p className=" text-[16px] leading-[24px] "><Link href={"/aboutUs"}>About</Link> </p>
             <p className=" text-[16px] leading-[24px] "><Link href="/shoplist">Shop list</Link>
             </p>
             <p className=" text-[16px] leading-[24px] ">
-            <Link href="/shopdetails">Shop Details</Link>
+            <Link href="/shopDetails">Shop Details</Link>
             </p>
           </div>
           <div className=" flex justify-between w-[90px] text-2xl ">

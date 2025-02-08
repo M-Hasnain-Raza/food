@@ -19,8 +19,8 @@ import { PiWineLight } from "react-icons/pi";
 
 export default function FoodCategory() {
   return (
-    <div className=" foodCategory bg-[#0D0D0D] max-w-[1920px] mx-auto h-[1500px] relative">
-      <div className="aboutUsTextAndaboutUsImages max-w-[1320px] max-h-[489px] mx-auto">
+    <div className=" foodCategory bg-[#0D0D0D] max-w-[1920px] mx-auto  relative">
+      <div className="aboutUsTextAndaboutUsImages max-w-[1320px]  mx-auto">
         <div className=" text-center pb-12 ">
           <h1 className=" text-[#ff9f0d] text-[32px] leading-[40px] ">
             Food Category
@@ -29,7 +29,7 @@ export default function FoodCategory() {
             <span className="text-[#ff9f0d]">Ch</span>oose Food Item
           </h1>
         </div>
-        <div className=" flex justify-between">
+        <div className=" flex gap-4 flex-wrap justify-center ">
           <Image src={foodCategoryImg1} alt=""></Image>
           <Image src={foodCategoryImg2} alt=""></Image>
           <Image src={foodCategoryImg3} alt=""></Image>
@@ -39,14 +39,14 @@ export default function FoodCategory() {
       <Image
         src={foodCategoryBg}
         alt=""
-        className=" absolute top-52 right-0 "
-      ></Image>
+        className=" absolute top-52 right-0 hidden md:block"
+      />
 
 
 
       {/* why Choose Us */}
-      <div className=" max-w-[1320px] h-[716px] mx-auto my-40 flex justify-between">
-        <div className=" w-[660px] flex flex-col gap-4 ">
+      <div className=" max-w-[1320px] mx-auto my-40 flex justify-between flex-col ">
+        <div className=" w-[660px] flex flex-col gap-4 flex-wrap  ">
           <div className="flex justify-between">
             <Image
               src={chooseUsImg1}

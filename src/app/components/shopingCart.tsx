@@ -7,8 +7,15 @@ import cartImg3 from "../assets/cartImg3.png";
 import cartImg4 from "../assets/cartImg4.png";
 import cartImg5 from "../assets/cartImg5.png";
 import { FaStar } from "react-icons/fa";
+import { useContext } from "react";
+import CartData from "../context/context";
 
 export default function ShopingCart() {
+  
+  const {cart, setCart}: any = useContext(CartData);
+
+  
+
   return (
     <div className=" xl:min-w-[1025px] xl:max-w-[1440px] 2xl:min-w-[1441px] 2xl:max-w-[1920px] mx-auto px-[0.5px]  ">
       <div className=" w-[1320px]  mx-auto flex flex-col gap-24 py-24 ">

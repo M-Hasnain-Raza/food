@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { IoCalendarNumberOutline } from "react-icons/io5";
 import { LiaCommentsSolid } from "react-icons/lia";
 import { PiUserCirclePlus } from "react-icons/pi";
@@ -9,6 +10,13 @@ import blogPgImg3 from "../assets/blogPgImg3.png";
 import blogPgImg4 from "../assets/blogPgImg4.png";
 import testimonalDp from "../assets/testimonalDp.png";
 import shopLatestImg from "../assets/shopLatestImg.png";
+import galleryImg1 from "../assets/galleryImg1.png";
+import galleryImg2 from "../assets/galleryImg2.png";
+import galleryImg3 from "../assets/galleryImg3.png";
+import galleryImg4 from "../assets/galleryImg4.png";
+import galleryImg5 from "../assets/galleryImg5.png";
+import galleryImg6 from "../assets/galleryImg6.png"; 
+import footerSocial from "../assets/footerSocial.png";
 import { FiSearch } from "react-icons/fi";
 import { FaFacebookF, FaStar, FaTwitter } from "react-icons/fa";
 import { FaPinterestP } from "react-icons/fa6";
@@ -276,9 +284,41 @@ export default function BlogContainer() {
               </div>
             </div>
           </div>
-          <div></div>
-          <div></div>
-          <div></div>
+          <div className="  text-[#0D0D0D] py-7 border-[1px] border-gray-300  ">
+              <h5 className="h5 text-black font-bold text-center">Product Tags</h5>
+
+  <div className=" flex flex-wrap gap-4 justify-center p-8 ">
+   <button className=" px-3 h-[40px] border-[1px] border-gray-300   "> <Link rel="stylesheet" href="#" >Services</Link></button>
+   <button className=" px-3 h-[40px] border-[1px] border-gray-300   "> <Link rel="stylesheet" href="#" >Our Menu</Link></button>
+   <button className=" px-3 h-[40px] border-[1px] border-gray-300   "> <Link rel="stylesheet" href="#" >Pizza</Link></button>
+   <button className=" px-3 h-[40px] border-[1px] border-gray-300   "> <Link rel="stylesheet" href="#" >Cupcakes</Link></button>
+   <button className=" px-3 h-[40px] border-[1px] border-gray-300   "> <Link rel="stylesheet" href="#" className=" " >Services</Link></button>
+   <button className=" px-3 h-[40px] border-[1px] border-gray-300   "> <Link rel="stylesheet" href="#" >Cookies</Link></button> 
+   <button className=" px-3 h-[40px] border-[1px] border-gray-300   "> <Link rel="stylesheet" href="#" >Our Shop</Link></button>
+   <button className=" px-3 h-[40px] border-[1px] border-gray-300   "> <Link rel="stylesheet" href="#" >Tandoori Chicken</Link></button>
+   <button className=" px-3 h-[40px] border-[1px] border-gray-300   "> <Link rel="stylesheet" href="#" >Cookies</Link></button> 
+   <button className=" px-3 h-[40px] border-[1px] border-gray-300   "> <Link rel="stylesheet" href="#" >Our Shop</Link></button>
+   <button className=" px-3 h-[40px] border-[1px] border-gray-300   "> <Link rel="stylesheet" href="#" >Tandoori Chicken</Link></button>
+  </div>
+</div>
+<div className="flex flex-col gap-4  py-8 w-[424px]  border-[1px] border-gray-300 ">
+<h5 className="h5 text-black font-bold text-center">Photo Gallery</h5>
+<div className=" flex flex-wrap gap-4 justify-center ">
+  <Image src={ galleryImg1 } alt=""></Image>
+  <Image src={ galleryImg2 } alt=""></Image>
+  <Image src={ galleryImg3 } alt=""></Image>
+  <Image src={ galleryImg4 } alt=""></Image>
+  <Image src={ galleryImg5 } alt=""></Image>
+  <Image src={ galleryImg6 } alt=""></Image>
+</div>
+
+          </div>
+          <div className="flex flex-col gap-4 items-center  py-8 w-[424px]  border-[1px] border-gray-300 ">
+            <h5 className="h5 text-black font-bold text-center">Follow Us</h5>
+            <Image src={footerSocial} alt=""></Image>
+
+
+          </div>
         </div>
       </div>
     </div>

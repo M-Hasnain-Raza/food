@@ -18,7 +18,7 @@ const navigation = [
   { name: "Menu", href: "/menu" },
   { name: "Blog", href: "/blog" },
   { name: "Pages", href: "#" },
-  { name: "About", href: "#" },
+  { name: "About", href: "/aboutUs" },
   { name: "Shop List", href: "/shoplist" },
   { name: "Shop Details", href: "/shopdetails" },
 ];
@@ -27,9 +27,9 @@ export default function HeroSection() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <div className=" heroSectionBg  max-w-[1440px] mx-auto h-[680px] bg-cover -z-10 ">
+    <div className=" heroSectionBg  max-w-[1920px] mx-auto lg:h-[680px] bg-cover -z-10 ">
       <div className="w-full h-full bg-[#0D0D0D] opacity-90 ">
-        <header className="h-[87px]  ">
+        <header className=" ">
           <div className=" w-full">
             <div className=" max-w-[1020px] mx-auto py-8">
               <div>
@@ -41,7 +41,7 @@ export default function HeroSection() {
                 aria-label="Global"
                 className="flex items-center justify-between "
               >
-                {/* toggle button */}
+                {/* toggle button 
                 <div className="flex lg:hidden">
                   <button
                     type="button"
@@ -51,7 +51,7 @@ export default function HeroSection() {
                     <span className="sr-only">Open main menu</span>
                     <LuAlignJustify aria-hidden="true" className="size-6" />
                   </button>
-                </div>
+                </div>*/}
 
                 {/* navbar Buttons */}
                 <div className="hidden lg:flex lg:gap-6">

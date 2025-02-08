@@ -2,19 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
-
-import shopImg1 from "../assets/shopImg1.png";
-import shopImg2 from "../assets/shopImg2.png";
-import shopImg3 from "../assets/shopImg3.png";
-import shopImg4 from "../assets/shopImg4.png";
-import shopImg5 from "../assets/shopImg5.png";
-import shopImg6 from "../assets/shopImg6.png";
-import shopImg7 from "../assets/shopImg7.png";
-import shopImg8 from "../assets/shopImg8.png";
-import shopImg9 from "../assets/shopImg9.png";
+import {client} from "../../sanity/lib/client";
+import { useState } from "react";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 import shopNowImg from "../assets/shopNowImg.png";
 import shopLatestImg from "../assets/shopLatestImg.png";
-
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { FiSearch } from "react-icons/fi";
@@ -23,13 +16,46 @@ import { FaAngleDoubleLeft } from "react-icons/fa";
 import { FaAngleDoubleRight } from "react-icons/fa";
 
 
+
 export default function ShopList() {
+
+  const router = useRouter()
+
+  const [dishes, setDishes]= useState([])
+  const [isLoading , setIsLoading] = useState(true);
+  const [error, setError] = useState("")
+
+  async function getDish() {
+    try {
+      const foodData  = await  client.fetch(`*[_type == "food"]{name, price, originalPrice, "image" : image.asset -> url, _type, _id, category}`);
+      if (foodData.length){
+        console.log("foodData---->", foodData);
+        setDishes(foodData);
+        console.log("foodData---->", foodData);
+      }
+    } catch(err) {
+      setError("error");
+      console.log("Error : ", err)
+    }
+}
+
+  useEffect(() => {
+    if (dishes.length) {
+      console.log(dishes)
+      setIsLoading(false);
+      setError("");
+    }
+  }, [dishes])
+
+  useEffect(()=>{
+    getDish()
+  }, []);
+  
   return (
-    <div className=" max-w-[1320px] mx-auto flex flex-col gap-4 py-20 ">
-      <div className="  h-[46px]  flex ">
+    <div className="max-w-[1320px] mx-auto flex flex-col gap-4 py-20 ">
+      <div className=" flex flex-wrap ">
         <div className=" sortBySearchFilter flex  items-center ">
           <h1 className=" h4 text-[#0D0D0D] ">Sort By:</h1>
-
           <Menu as="div" className="relative px-6 inline-block ">
             <div>
               <MenuButton className="inline-flex w-full items-baseline  gap-x-28 rounded-md bg-white px-3 py-2 h5 text-gray-400 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
@@ -51,7 +77,7 @@ export default function ShopList() {
                     href="#"
                     className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 data-[focus]:outline-none"
                   >
-                    Account settings
+                    category
                   </a>
                 </MenuItem>
                 <MenuItem>
@@ -59,35 +85,20 @@ export default function ShopList() {
                     href="#"
                     className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 data-[focus]:outline-none"
                   >
-                    Support
+                    price
                   </a>
                 </MenuItem>
-                <MenuItem>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 data-[focus]:outline-none"
-                  >
-                    License
-                  </a>
-                </MenuItem>
+               
                 <form action="#" method="POST">
-                  <MenuItem>
-                    <button
-                      type="submit"
-                      className="block w-full px-4 py-2 text-left text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 data-[focus]:outline-none"
-                    >
-                      Sign out
-                    </button>
-                  </MenuItem>
+          
                 </form>
               </div>
             </MenuItems>
           </Menu>
         </div>
-        <div>
+        <div className=" showSearchFilter">
           <div className=" showSearchFilter flex  items-center ">
             <h1 className=" h4 text-[#0D0D0D] ">Show:</h1>
-
             <Menu as="div" className="relative px-6 inline-block ">
               <div>
                 <MenuButton className="inline-flex w-full items-baseline  gap-x-28 rounded-md bg-white px-3 py-2 h5 text-gray-400 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
@@ -147,142 +158,29 @@ export default function ShopList() {
 
       <div className=" flex justify-between">
         <div className=" flex flex-col items-center">
-        <div className=" w-[985px] h-[1925px]  flex flex-wrap gap-[24px] ">
-          <div className="">
+        <div className=" flex flex-wrap  gap-5 py-8 ">
+
+{
+  !isLoading ? dishes.map((v: any, i) => (
+    
+          <div onClick={() => router.push(`/dish/${v._id}`)} key={i} className="">
             {" "}
-            <Image src={shopImg1} alt=""></Image>
-            <p className=" p text-[#0D0D0D] py-2 ">Fresh Lime</p>
-            <p className=" p-sm text-[#ff9f0d] ">
-              $28.00
-              <span className=" line-through text-gray-400 pl-2 ">$45.00</span>
+            <Image height={200} width={200} src={v["image"]} alt=""></Image>
+            <p className=" p text-[#0D0D0D] py-2 ">{v.name}</p>
+            <p className=" p-sm text-[#ff9f0d] ">Price {v.price}
+              <span className=" line-through text-gray-400 pl-2 "> {v.originalPrice}</span>
             </p>
-          </div>
-          <div className="">
-            {" "}
-            <Image src={shopImg2} alt=""></Image>
-            <p className=" p text-[#0D0D0D] py-2 ">Fresh Lime</p>
-            <p className=" p-sm text-[#ff9f0d] ">
-              $28.00
-              <span className=" line-through text-gray-400 pl-2 ">$45.00</span>
+            <p className="  p text-[#0D0D0D]">Category
+            <span className="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-yellow-600/20 ring-inset">{v.category}</span>
             </p>
+          
           </div>
-          <div className="">
-            {" "}
-            <Image src={shopImg3} alt=""></Image>
-            <p className=" p text-[#0D0D0D] py-2 ">Fresh Lime</p>
-            <p className=" p-sm text-[#ff9f0d] ">
-              $28.00
-              <span className=" line-through text-gray-400 pl-2 ">$45.00</span>
-            </p>
-          </div>
-          <div className="">
-            {" "}
-            <Image src={shopImg4} alt=""></Image>
-            <p className=" p text-[#0D0D0D] py-2 ">Fresh Lime</p>
-            <p className=" p-sm text-[#ff9f0d] ">
-              $28.00
-              <span className=" line-through text-gray-400 pl-2 ">$45.00</span>
-            </p>
-          </div>
-          <div className="">
-            {" "}
-            <Image src={shopImg5} alt=""></Image>
-            <p className=" p text-[#0D0D0D] py-2 ">Fresh Lime</p>
-            <p className=" p-sm text-[#ff9f0d] ">
-              $28.00
-              <span className=" line-through text-gray-400 pl-2 ">$45.00</span>
-            </p>
-          </div>
-          <div className="">
-            {" "}
-            <Image src={shopImg6} alt=""></Image>
-            <p className=" p text-[#0D0D0D] py-2 ">Fresh Lime</p>
-            <p className=" p-sm text-[#ff9f0d] ">
-              $28.00
-              <span className=" line-through text-gray-400 pl-2 ">$45.00</span>
-            </p>
-          </div>
-          <div className="">
-            {" "}
-            <Image src={shopImg7} alt=""></Image>
-            <p className=" p text-[#0D0D0D] py-2 ">Fresh Lime</p>
-            <p className=" p-sm text-[#ff9f0d] ">
-              $28.00
-              <span className=" line-through text-gray-400 pl-2 ">$45.00</span>
-            </p>
-          </div>
-          <div className="">
-            {" "}
-            <Image src={shopImg8} alt=""></Image>
-            <p className=" p text-[#0D0D0D] py-2 ">Fresh Lime</p>
-            <p className=" p-sm text-[#ff9f0d] ">
-              $28.00
-              <span className=" line-through text-gray-400 pl-2 ">$45.00</span>
-            </p>
-          </div>
-          <div className="">
-            {" "}
-            <Image src={shopImg9} alt=""></Image>
-            <p className=" p text-[#0D0D0D] py-2 ">Fresh Lime</p>
-            <p className=" p-sm text-[#ff9f0d] ">
-              $28.00
-              <span className=" line-through text-gray-400 pl-2 ">$45.00</span>
-            </p>
-          </div>
-          <div className="">
-            {" "}
-            <Image src={shopImg4} alt=""></Image>
-            <p className=" p text-[#0D0D0D] py-2 ">Fresh Lime</p>
-            <p className=" p-sm text-[#ff9f0d] ">
-              $28.00
-              <span className=" line-through text-gray-400 pl-2 ">$45.00</span>
-            </p>
-          </div>
-          <div className="">
-            {" "}
-            <Image src={shopImg5} alt=""></Image>
-            <p className=" p text-[#0D0D0D] py-2 ">Fresh Lime</p>
-            <p className=" p-sm text-[#ff9f0d] ">
-              $28.00
-              <span className=" line-through text-gray-400 pl-2 ">$45.00</span>
-            </p>
-          </div>
-          <div className="">
-            {" "}
-            <Image src={shopImg6} alt=""></Image>
-            <p className=" p text-[#0D0D0D] py-2 ">Fresh Lime</p>
-            <p className=" p-sm text-[#ff9f0d] ">
-              $28.00
-              <span className=" line-through text-gray-400 pl-2 ">$45.00</span>
-            </p>
-          </div>
-          <div className="">
-            {" "}
-            <Image src={shopImg7} alt=""></Image>
-            <p className=" p text-[#0D0D0D] py-2 ">Fresh Lime</p>
-            <p className=" p-sm text-[#ff9f0d] ">
-              $28.00
-              <span className=" line-through text-gray-400 pl-2 ">$45.00</span>
-            </p>
-          </div>
-          <div className="">
-            {" "}
-            <Image src={shopImg8} alt=""></Image>
-            <p className=" p text-[#0D0D0D] py-2 ">Fresh Lime</p>
-            <p className=" p-sm text-[#ff9f0d] ">
-              $28.00
-              <span className=" line-through text-gray-400 pl-2 ">$45.00</span>
-            </p>
-          </div>
-          <div className="">
-            {" "}
-            <Image src={shopImg9} alt=""></Image>
-            <p className=" p text-[#0D0D0D] py-2 ">Fresh Lime</p>
-            <p className=" p-sm text-[#ff9f0d] ">
-              $28.00
-              <span className=" line-through text-gray-400 pl-2 ">$45.00</span>
-            </p>
-          </div>
+
+  )) : <>Loading...</>
+}
+
+
+
         </div>
         <div className=" pagination ">
       <nav className="isolate inline-flex rounded-md shadow-sm " aria-label="Pagination">
@@ -306,7 +204,7 @@ export default function ShopList() {
 
 
 
-        <div className=" w-[315px] h-[1490px] border-[0.5px] border-gray-300 rounded-xl ">
+        {/* <div className=" w-[315px] h-[1490px] border-[0.5px] border-gray-300 rounded-xl ">
           <div className=" searchBar flex py-7 max-w-[250px] mx-auto font-[sans-serif]">
             <input
               type="email"
@@ -393,7 +291,7 @@ export default function ShopList() {
 </div>
 
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
